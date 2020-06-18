@@ -3,8 +3,11 @@ const productModel = jsonModel('productos')
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-// Cambiar nombres de productos del INDEX con JS.
-
+// const controller = {
+// 	root: (req, res) => {
+// 		res.render('pc-Gaming');
+// 	}
+// };
 
 const controller = {
 	root: (req, res) => {
@@ -12,12 +15,13 @@ const controller = {
 			return producto
 		})
 
-		const product_index = productModel.filterBySomething(producto =>{
-			return producto.thematic == 'index-image';
-		})
+		// const product_pcg = productModel.filterBySomething(producto =>{
+		// 	return producto.promocion == 'promo-teclado';
+		// })
         
-		return res.render('index', {productos, product_index});
+		return res.render('pc-gaming', {productos});
 	}
 };
+
 
 module.exports = controller;

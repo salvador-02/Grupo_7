@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/9f65918680.js" crossorigin="anonymous"></script>
     <title>Gamer Zone Home</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/pcgamingstyle.css' />
   </head>
   <body>
 
@@ -37,44 +37,74 @@
       </div>
           <!--Subheader-->
       <div class="container-fluid">
-          <nav class="nav navbar-dark navbar-expand-sm" style="background-color: rgb(54, 180, 54);">
-              <ul class="navbar-nav">
+          <nav class="nav text-center  navbar-dark navbar-expand-sm" style="background-color: rgb(54, 180, 54);">
+              <ul class="navbar-nav ">
                   <li class="nav-item">
-                  <a class="nav-link active" href="#">Menu</a>
+                        <a class="nav-link " href="#">Menu</a>
                   </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="#">Pc Gaming</a>
+                        <a class="nav-link active" href="#">Pc Gaming</a>
                   </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="#">Consolas</a>
+                        <a class="nav-link" href="#">Consolas</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="#">Carrito</a>
                   </li>
               </ul>
           </nav>
-              <img src="/images/teclado2.jpg" class="img-fluid " alt="Responsive image">
-          <div class="row bg-dark">
-                  <img src="/images/teclado.jpg" class="img-fluid col-md-6" alt="Responsive image">
-                  <img src="/images/auris.jpg" class="img-fluid col-md-6" alt="Responsive image">
-          </div>
-          <div class="col-12 bg-dark">
-               <p class="text-success text-center">APROVECHA LAS OFERTAS DEL MES DE HASTA UN 50% DE DESCUENTO!</p>
-          </div>
-      </div>
-  <div class="container-fluid">
-      <div class="row" id="promociones">
-          <% product_index.forEach(producto => { %>          
-            <div class="card border-dark mb-3" style="max-width: 15rem;">
-                <img src="/images/<%= producto.image %> " class="pic" alt="Responsive image">
-                <div class="card-body text-dark">
-                <h5 class="card-title"><%= producto.name %> </h5>
-                <p class="card-text"><%= producto.description %> </p>
+  <!--Body-->
+
+  <div class="container-fluid" id="contenedor">
+    <div class="row">
+
+    <!--CATEGORIAS DE PRODUCTOS-->
+
+      <div class="col-md-12 col-lg-12 d-flex justify-content-around align-items-center p-2  bg-dark " id="categoria">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <span class=""><i class="fas fa-mouse" id="icon" style="font-size: 2.5em; color: rgb(197, 199, 197);"></i></i> </span>
+                    <p id="sub-cat" style="color: whitesmoke;">Mouse</p>
                 </div>
-            </div>    
-          <% }) %>      
+        
+                <div class="col text-center">
+                    <span class=""> <i class="far fa-keyboard" id="icon" style="font-size: 2.5em; color: rgb(211, 211, 211);"></i> </span>
+                    <p id="sub-cat" style="color: whitesmoke;">Teclados</p>
+                </div>
+        
+                <div class="col text-center">
+                    <span class=""><i class="fas fa-tv" id="icon" style="font-size: 2.5em; color: rgb(230, 230, 230);"></i> </span>
+                    <p id="sub-cat" style="color: whitesmoke;">Monitores</p>
+                </div>
+              
+                <div class="col text-center">
+                    <span class=""><i class="fas fa-headphones-alt" id="icon" style="font-size: 2.5em; color: rgb(230, 230, 230);"></i> </span>
+                    <p id="sub-cat" style="color: whitesmoke;">Auriculares</p>
+                </div>
+
+            </div>
+        </div>
+      </div>  
+    </div>  
+
+    <!-- Todos los productos-->
+<div class="container mb-4">
+      <div class="row">
+          <!--Producto-->
+          <% productos.forEach(producto => { %>   
+          <div class="col-md-4  product-grid">
+              <div class="image">
+                    <img src="/images/<%= producto.image %>" class="" alt="">
+              </div>
+              <h5 class="text-center"><%= producto.name %></h5>
+              <h5 class="">$<%= producto.price %></h5>
+              <a href="#" class="btn buy">Comprar</a>
+          </div>
+          <% }) %> 
       </div>
-  </div>
+</div>
+
   <!--Footer-->
   <footer class="page-footer bg-dark text-white">
 

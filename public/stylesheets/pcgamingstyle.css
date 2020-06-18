@@ -1,0 +1,216 @@
+
+/* PRODUCTO */
+.product-grid {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-grid:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.image {
+    display: flex;
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+}
+
+.buy {
+    background-color: transparent;
+    color: #434444;
+    border-radius: 10;
+    border: 1px solid #434444;
+    width: 100px;
+    margin-top: 20px;
+}
+
+.buy:hover {
+    background-color: #23be48 ;
+    color: white;
+}
+
+/*Nav catalogo */
+
+#sub-cat{
+    font-size: 0.9em !important;
+    margin: 0 !important;
+}
+
+#icon {
+    font-size: 2em !important;
+}
+
+/*No tocar */
+
+.navbar-brand {
+    font-size: 30px;
+  }
+  
+  img {
+    position: relative;
+
+  }
+  
+  .col-md-6 {
+    padding-top: 10px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .row {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .pic{
+    padding: 5%;
+  }
+  
+  .container-fluid {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  
+  /*Footer*/
+  
+  /* Ipad */ 
+
+  
+  @media (max-width: 850px) {
+
+    #sub-cat{
+        font-size: 2em !important;
+        margin: 0 !important;
+    }
+
+    #icon {
+        font-size: 4em !important;
+    }
+
+  
+    .text-center{
+        font-size: 0.5em;
+    }
+
+    #contenedor {
+        flex-direction: column;
+    }
+
+    .row {
+        align-items: center;
+    }
+
+    .card-img-top {
+        width: 15rem !important;
+    }
+
+    #categoria {
+        padding: 1em !important;
+        width: 100% !important;
+    }
+
+    /* #card-categoria {
+        padding: 1em;
+    }
+   */
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    .col-md-6{
+        padding-top: 0.5em;
+    }
+    .container-fluid {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+  
+    footer {
+        font-size: 2em;
+    }
+  
+    #info {
+        font-size: 0.35em;
+    }
+  }
+  
+
+  
+  /* Iphone */
+  @media (max-width: 576px) {
+
+    #sub-cat{
+        font-size: 1.6em !important;
+        margin: 0 !important;
+    }
+
+    #icon {
+        font-size: 4em !important;
+    }
+
+    .img-fluid {
+        height: 0em;
+        width: 0em;
+    }
+  
+    .text-center{
+        font-size: 0.5em;
+    }
+
+    #contenedor {
+        flex-direction: column;
+    }
+
+
+    .card-img-top {
+        width: 15rem !important;
+    }
+
+    #categoria {
+        padding: 1em !important;
+    }
+
+    /* #card-categoria {
+        padding: 1em;
+    }
+   */
+    .nav {
+        font-size: 1em;
+        flex-direction: column;
+        align-items: center;
+    }
+    .col-md-6{
+        padding-top: 0.5em;
+    }
+    .container-fluid {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+  
+    footer {
+        font-size: 2em;
+    }
+  
+    #info {
+        font-size: 0.35em;
+    }
+  }
+  
+  
+  
