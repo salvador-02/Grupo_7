@@ -25,7 +25,8 @@
   "price": 13800,
   "image": "product_3.jpg",
   "category": "mouse",
-  "descuento": 50
+  "descuento": 50,
+  "carrito": true
  },
  {
   "id": 4,
@@ -70,7 +71,7 @@
   "price": 7150,
   "image": "product_8.jpg",
   "category": "mouse",
-    "descuento": 15
+  "descuento": 15
  },
  {
   "id": 9,

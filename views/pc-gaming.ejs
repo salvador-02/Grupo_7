@@ -99,15 +99,16 @@
     <!-- Todos los productos-->
 <div class="container mb-4">
       <div class="row">
-          <!--Producto -->
+          
           <% productos.forEach(producto => { %>  
+            <a href="/detail/<%= producto.id %> "></a>
           <div class="col-md-4 mb-4  product-grid">
               <div class="image">
                     <img src="/images/<%= producto.image %>" class="" alt="">
               </div>
               <h5 class="text-center"><%= producto.name %></h5>
               <h5 class="">$<%= producto.price %></h5>
-              <a href="pc-gaming/detail/<%= producto.id %> " class="btn btn-success">Agregar al carrito</a>
+              <a href="/pc-gaming/detail/<%= producto.id %> " class="btn btn-success">Ver Detalle</a>
           </div>
           <% }) %> 
       </div>

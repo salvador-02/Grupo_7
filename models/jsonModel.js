@@ -44,6 +44,35 @@ module.exports = (archivo) => {
 
          return true
      },
+     edit: function(newData, id){
+      let data = this.leerJson()
+
+      //editar
+      let newProduct = {
+          id: id,
+          ...newData
+
+      }
+
+      data = data.map(product => {
+          if (product.id == id){
+              newProduct = {
+                  ...newProduct,
+                  image: product.image
+              } 
+
+              return newProduct
+
+          } else{ 
+
+              return product
+          }
+
+      })
+
+      //Actualizar
+      this.escribirJson(data)
+  }
 
    }
 

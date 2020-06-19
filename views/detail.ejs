@@ -89,9 +89,10 @@
                             <p>Retiro gratis en locales del vendedor</p>
                         </li>
                     </ul>
-
-                    <a href="/carrito" class="btn btn-outline-success">COMPRAR AHORA</a>
-                    <hr>
+                    <form action="/carrito/<%= product.id %>" method="POST">
+                        <button type="submit" class="btn btn-outline-success">AGREGAR AL CARRITO</button>
+                        <hr>
+                    </form>
 
                     <!-- <a href="/products/edit/<%= product.id %> " class="action-button edit">EDITAR PRODUCTO</a>
                     <form action="/products/delete/<%= product.id %> ?_method=delete" method="POST" style="display: inline-flex">

@@ -18,7 +18,17 @@ const controller = {
 		})
 
 		return res.render('carrito', {productos})
-    }
+	},
+	agregar: function(req, res) {
+		let producto = productModel.findById(req.params.id)
+		if(!producto.carrito){
+			producto.carrito = true
+		}
+
+		productModel.edit(producto, req.params.id)
+
+		return res.redirect('/carrito');
+	}
 
 };
 
