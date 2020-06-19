@@ -33,6 +33,17 @@ module.exports = (archivo) => {
          const dataFiltrada = data.filter(callback);
          return dataFiltrada;
       },
+      
+      guardarUno: function (newData) {
+         // Leer el JSON
+         let allData = this.leerJson()
+         //Agregar la data
+         allData = [...allData, newData]
+         //Guardar la data
+         this.escribirJson(allData)
+
+         return true
+     },
 
    }
 

@@ -1,4 +1,8 @@
 
+.card:hover {
+  border: solid 1px #979797;
+}
+
 .navbar-brand {
   font-size: 30px;
 }

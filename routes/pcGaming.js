@@ -5,4 +5,8 @@ const pcGamingController = require('../controllers/pcGamingController');
 
 router.get('/', pcGamingController.root);
 
+router.get('/:category', pcGamingController.byCategory);
+router.get('/detail/:productId', pcGamingController.detail)
+
+
 module.exports = router;

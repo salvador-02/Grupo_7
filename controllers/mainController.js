@@ -13,11 +13,11 @@ const controller = {
 		})
 
 		const product_index = productModel.filterBySomething(producto =>{
-			return producto.thematic == 'index-image';
+			return producto.descuento == 50;
 		})
-        
+ 
 		return res.render('index', {productos, product_index});
-	}
+	},
 };
 
 module.exports = controller;

@@ -1,0 +1,96 @@
+/* Detalle producto */
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+#tiras {
+    border: solid 0.5px;
+}
+
+.col {
+    padding-left: 0px !important;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    margin-left: 0 !important;
+}
+
+.navbar-brand {
+    font-size: 30px;
+  }
+  
+  .container-fluid {
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  
+  /*Footer*/
+  
+  /* Ipad */ 
+
+  
+  @media (max-width: 850px) {
+
+
+
+  
+    .text-center{
+        font-size: 0.5em;
+    }
+
+    .row {
+        align-items: center;
+    }
+
+
+ 
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+  
+    }
+    .container-fluid {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+  
+    footer {
+        font-size: 2em;
+    }
+  
+    #info {
+        font-size: 0.35em;
+    }
+  }
+  
+
+  
+  /* Iphone */
+  @media (max-width: 576px) {
+
+
+
+    .nav {
+        font-size: 1em;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container-fluid {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+  
+    footer {
+        font-size: 2em;
+    }
+}
