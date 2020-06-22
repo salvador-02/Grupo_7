@@ -279,7 +279,8 @@
   "price": 118379,
   "image": "product_31.jpg",
   "category": "monitor",
-  "descuento": 0
+  "descuento": 0,
+  "carrito": true
  },
  {
   "id": 32,
