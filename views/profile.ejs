@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9f65918680.js" crossorigin="anonymous"></script>
+    <title>Gamer Zone Home</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <!--Header-->
+    <%- include('partials/head')  %> 
+
+    <div class="d-flex justify-content-center mt-4">
+        <img src="/avatar/user-avatar.jpg" alt="User-Avatar" style="width: 80px; height: 80px;" alt="user-avatar">
+    </div>
+        <div class="container mt-4" id="registro">
+            <div class="row product-detail">
+                <div class="col-5 d-flex flex-column mb-4">
+                    <label for="name" class="form-label"><b>Nombre:</b></label>
+                </div>
+                <div class="col-5 d-flex flex-column mb-4">
+                    <label for="lastname" class="form-label"><b>Apellido: </b></label>
+                </div>
+                <div class="col-5 d-flex flex-column mb-4">
+                    <label for="username" class="form-label"><b>Username: </b> <%= locals.user.username %>  </label>
+                </div>
+                <div class="col-5 d-flex flex-column mb-4">
+                    <label for="email" class="form-label"><b>Email</b>: <%= locals.user.email %>  </label>
+                </div>
+            </div>
+        </div>
+
+    <!--Contenido-->
+
+    <!--Footer-->
+    <%- include('partials/footer') %> 
+ 
+
+  </body>
+  </html>

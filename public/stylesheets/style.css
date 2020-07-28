@@ -36,17 +36,23 @@ img {
 /*Footer*/
 
 
-
+/* 
 @media (max-width: 576px) {
 
+  .navbar-collapse {
+    display: flex;
+    
+  }
+
   .text-center{
+      text-align: center !important;
       font-size: 0.5em;
   }
-/* 
-  .collapse {
-      width: 20px;
-      height: 200px;
-  } */
+
+
+  .navbar-nav {
+    text-align: center;
+  }
 
   .nav {
       flex-direction: column;

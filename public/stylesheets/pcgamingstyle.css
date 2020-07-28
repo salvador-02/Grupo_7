@@ -86,23 +86,20 @@ img {
   /*Footer*/
   
   /* Ipad */ 
-
   
   @media (max-width: 850px) {
 
     #sub-cat{
-        font-size: 2em !important;
+        font-size: 1em !important;
         margin: 0 !important;
     }
 
     #icon {
-        font-size: 4em !important;
+        font-size: 2em !important;
     }
 
-
-  
-    .text-center{
-        font-size: 0.5em;
+    .my-2 {
+        font-size: 0.35em;
     }
 
     #contenedor {
@@ -146,6 +143,14 @@ img {
   
     #info {
         font-size: 0.35em;
+    }
+
+    #nav-button{
+        font-size: 1em !important;
+    }
+
+    #social-media{
+        font-size: 0.65em;
     }
   }
   
@@ -215,7 +220,25 @@ img {
     #info {
         font-size: 0.35em;
     }
+
+    .row {
+        margin-right: 0px !important;
+    }
+
+    #nav-button{
+        font-size: 1em !important;
+    }
+
+    .my-2 {
+        font-size: 1em;
+    }
+
+    #nombre-producto{
+        font-size: 1em;
+    }
+  
   }
+
   
   
   

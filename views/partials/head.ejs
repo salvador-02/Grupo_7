@@ -1,0 +1,34 @@
+
+
+
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex" >
+        <a class="navbar-brand" style="color: rgb(72, 228, 25);" href="/">GamerZone</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                </li>
+                <li class="nav-item dropdown">
+            </ul>
+            <form class="form-inline my-0 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+            <% if (locals.user) { %>
+            <a href='/users/profile' class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-left: 5px;"><i class="fas fa-user-circle"></i></a>
+            <form action="/users/logout" method="POST" >  
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" style="margin-left: 5px; color: red;">Log out</button>
+            </form>
+            <% } else { %>
+                <a href="/users/login" class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-left: 5px;">Iniciar sesion</a>
+            <% } %>   
+        </div>
+    </nav>
+</div>

@@ -12,6 +12,10 @@ h6 {
     padding-left: 0px !important;
 }
 
+#productos {
+    background-color: red;
+}
+
 .row {
     display: flex;
     align-items: center;
@@ -32,15 +36,17 @@ h6 {
   /*Footer*/
   
   /* Ipad */ 
-
   
   @media (max-width: 850px) {
 
-
+    .nav-link {
+        font-size: 2.5em !important;
+        
+    }
 
   
     .text-center{
-        font-size: 0.5em;
+        font-size: 0.35em;
     }
 
     .row {
@@ -69,6 +75,7 @@ h6 {
     #info {
         font-size: 0.35em;
     }
+
   }
   
 
@@ -76,7 +83,9 @@ h6 {
   /* Iphone */
   @media (max-width: 576px) {
 
-
+    .nav-item {
+        font-size: 0.4em;
+    }
 
     .nav {
         font-size: 1em;
@@ -92,5 +101,9 @@ h6 {
   
     footer {
         font-size: 2em;
+    }
+
+    .my-2 {
+        font-size: 1.5em;
     }
 }

@@ -1,4 +1,15 @@
-/* Detalle producto */
+#registro {
+    padding: 0.1em; 
+    padding-top: 2em;
+    border-top: solid 2px;
+    border-color: rgb(28, 190, 28);
+    
+}
+
+.social-container{
+    display: flex;
+    justify-content: center;
+}
 .row {
     display: flex;
     justify-content: center;
@@ -87,7 +98,7 @@
   /* Iphone */
   @media (max-width: 576px) {
 
-  
+
 
     #sub-cat{
         font-size: 1.6em !important;
@@ -150,6 +161,13 @@
 
 
 /* sign in FORM */
+
+.btn-light {
+    color: white;
+    background-color:#3C589C !important;
+}
+
+
 #logreg-forms{
     width:412px;
     margin:10vh auto;
@@ -180,6 +198,7 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
 
 #logreg-forms .social-login{
     width:390px;
