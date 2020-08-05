@@ -51,10 +51,10 @@ const controller = {
 		const errors = validationResult(req);
 	
 		if(errors.isEmpty()){
+			
 			// LOGUEO AL USUARIO ETC
-
 			User.findOne( { 
-				where:{ 
+				where: { 
 					email: req.body.email
 				}
 			})
@@ -107,29 +107,41 @@ const controller = {
 	},
 
 	update: function(req, res) {
+
 		const errors = validationResult(req);
-		
-		if(errors.isEmpty()) {
-			let user = req.body
-			return res.send(user)
+
+		if (errors.isEmpty()) {
+			User.findByPk(req.session.user.id)
+			.then(user => {
+				const _body = req.body;
+
+				_body.name = req.body.name;
+				_body.email = req.body.email;
+				_body.lastname = req.body.lastname;
+				_body.username = req.body.username;
+				_body.image = req.file ? req.file.filename : user.image;
+
+				return User.update({
+					email: _body.email,
+					name: _body.name,
+					lastname: _body.lastname,
+					username: _body.username,
+					image: _body.image
+				} , 
+				{ 
+					where: {
+						id: req.session.user.id
+					}
+				}).then(user => {
+					
+					return res.render('profile');
+					
+				})
+			})
 		}
-		
 
 
-	// 	User.update({
-	// 		email: ,
-
-	// 	} , 
-	// 	{ 
-	// 		where: {
-	// 			id : 43
-	// 		}
-	// 	}).then(user => {
-			
-	// 		return res.send(req.body.email)
-	// 	})
-	}
-		
+	}		
 }
 ;
 

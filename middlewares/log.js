@@ -1,11 +1,9 @@
 const json = require("../models/jsonModel");
-// const User = json("users");
 const { User } = require('../database/models');
 
 
 module.exports = (req, res, next) => {
 
-  
   res.locals.user = false;
 
   if(req.session.user){
@@ -32,6 +30,7 @@ module.exports = (req, res, next) => {
 
       // Mandamos datos a la vista
       res.locals.user = user;
+
       // Continuamos
       return next();
 

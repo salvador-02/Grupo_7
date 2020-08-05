@@ -7,7 +7,6 @@ const multer = require('multer');
 const usersController = require('../controllers/usersController');
 // const { check } = require('express-validator');
 const validator = require('../middlewares/validator');
-const adminValidator = require('../middlewares/admin')
 const { login } = require('../controllers/usersController');
 const { locals } = require('../app');
 
@@ -15,7 +14,6 @@ const { locals } = require('../app');
 
   var storage = multer.diskStorage({ 
     destination: (req, file, cb) => {
-    console.log('aaca');
     cb(null, path.resolve( __dirname, '../public/avatar'));
     
     
@@ -34,8 +32,6 @@ const { locals } = require('../app');
             if(!acceptedExtensions.includes(ext)) {
                 req.file = file;
             }
-            console.log('Imprimo el archivo')
-            console.log(file)
             cb(null, acceptedExtensions.includes(ext))
         }
     });
@@ -68,14 +64,11 @@ router.get('/profile', checkProfile, usersController.profile);
 router.get('/edit',checkProfile, usersController.edit);
 
 
-
-
 // Post Requests
 router.post('/register', upload.single('avatar'), validator.register, usersController.processRegister);
 router.post('/loginIn', validator.login, usersController.processLogin);
 router.post('/logout', usersController.logOut);
-router.post('/edit',  usersController.update);
-
+router.post('/edit', upload.single('avatar'),  usersController.update);
 
 
 module.exports = router;
