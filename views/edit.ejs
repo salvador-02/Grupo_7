@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9f65918680.js" crossorigin="anonymous"></script>
+    <title>Gamer Zone Home</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <!--Header-->
+    <%- include('partials/head')  %> 
+
+    <div class="container mt-4 mb-4">
+
+        <form action="/users/edit" method="POST" enctype="multipart/form-data">
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input  name="email" type="text" class="form-control" id="email" value="<%= user.email %>">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="username">Username</label>
+                <input  name="username" type="text" class="form-control" id="username" value="<%= user.username %>">
+            </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="name">Nombre</label>
+                <input  name="name" type="text" class="form-control" id="name" value="<%= user.name %>">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="lastname">Apellido</label>
+                <input  name="lastname" type="text" class="form-control" id="lastname" value="<%= user.lastname %>">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="avatar">Avatar: </label>
+                <input type="file" id="avatar" name="avatar" class="form-file col-12">
+                <p class="error"><%= typeof errors == 'undefined' ? null :errors.image ? errors.image.msg : null  %> </p>
+            </div>
+            </div>
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </form>
+    </div>
+
+    <!--Contenido-->
+
+    <!--Footer-->
+    <%- include('partials/footer') %> 
+ 
+
+  </body>
+  </html>

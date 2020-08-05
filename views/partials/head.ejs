@@ -1,4 +1,12 @@
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9f65918680.js" crossorigin="anonymous"></script>
+    <title>Gamer Zone Home</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
 
 
 <div class="container-fluid">
@@ -6,7 +14,7 @@
         <a class="navbar-brand" style="color: rgb(72, 228, 25);" href="/">GamerZone</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
+  x        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -18,17 +26,20 @@
                 <li class="nav-item dropdown">
             </ul>
             <form class="form-inline my-0 my-lg-0">
+                
                 <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos..." aria-label="Search">
+            
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-            </form>
-            <% if (locals.user) { %>
-            <a href='/users/profile' class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-left: 5px;"><i class="fas fa-user-circle"></i></a>
-            <form action="/users/logout" method="POST" >  
-                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" style="margin-left: 5px; color: red;">Log out</button>
-            </form>
-            <% } else { %>
-                <a href="/users/login" class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-left: 5px;">Iniciar sesion</a>
-            <% } %>   
+                </form>
+                <% if (locals.user) { %>
+                <a href='/users/profile' class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-left: 5px;"><i class="fas fa-user-circle"></i></a>
+                <form action="/users/logout" method="POST" >  
+                    <button class="btn btn-outline-danger my-2 my-sm-0" type="submit" style="margin-left: 5px; color: red;">Log out</button>
+                </form>
+                <% } else { %>
+                    <a href="/users/login" id="session" class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin-left: 5px;">Iniciar sesion</a>
+                <% } %>   
+            
         </div>
     </nav>
 </div>

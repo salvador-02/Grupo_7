@@ -41,28 +41,28 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <a href="/pc-gaming/mouse" class="btn btn-dark" id="boton">
+                    <a href="/pc-gaming/1" class="btn btn-dark" id="boton">
                     <span class=""><i class="fas fa-mouse" id="icon" style="font-size: 2.5em; color: rgb(197, 199, 197);"></i></i> </span>
                     <p id="sub-cat" style="color: whitesmoke;">Mouse</p>
                     </a>
                 </div>
         
                 <div class="col text-center">
-                    <a href="/pc-gaming/teclado" class="btn btn-dark">
+                    <a href="/pc-gaming/2" class="btn btn-dark">
                     <span class=""> <i class="far fa-keyboard" id="icon" style="font-size: 2.5em; color: rgb(211, 211, 211);"></i> </span>
                     <p id="sub-cat" style="color: whitesmoke;">Teclados</p>
                     </a>
                 </div>
         
                 <div class="col text-center">
-                    <a href="/pc-gaming/monitor" class="btn btn-dark">
+                    <a href="/pc-gaming/4" class="btn btn-dark">
                     <span class=""><i class="fas fa-tv" id="icon" style="font-size: 2.5em; color: rgb(230, 230, 230);"></i> </span>
                     <p id="sub-cat" style="color: whitesmoke;">Monitores</p>
                     </a>
                 </div>
               
                 <div class="col text-center">
-                    <a href="/pc-gaming/auricular" class="btn btn-dark">
+                    <a href="/pc-gaming/3" class="btn btn-dark">
                     <span class=""><i class="fas fa-headphones-alt" id="icon" style="font-size: 2.5em; color: rgb(230, 230, 230);"></i> </span>
                     <p id="sub-cat" style="color: whitesmoke;">Auriculares</p>
                     </a>
@@ -77,15 +77,18 @@
 <div class="container mb-4">
       <div class="row">
           
-          <% productos.forEach(producto => { %>  
-            <a href="/detail/<%= producto.id %> "></a>
+          <% product.forEach(product => { %>  
+            <a href="/detail/<%= product.id %> "></a>
           <div class="col-md-4 mb-4  product-grid">
               <div class="image">
-                    <img src="/images/<%= producto.image %>" class="" alt="">
+                    <img src="/images/<%= product.img %>" class="" alt="">
               </div>
-              <h5 id="nombre-producto" class="text-center"><%= producto.name %></h5>
-              <h5 class="">$<%= producto.price %></h5>
-              <a href="/pc-gaming/detail/<%= producto.id %> " id="nav-button" class="btn btn-success">Ver Detalle</a>
+              <h5 id="nombre-producto" class="text-center"><%= product.name %></h5>
+              <h5 class="">$<%= product.price %></h5>
+              <a href="/pc-gaming/detail/<%= product.id %> " id="nav-button" class="btn btn-success">Ver Detalle</a>
+              <% if (locals.user.rol == 1) { %>
+                <a href="/pc-gaming/edit/<%= product.id %> " id="nav-button" class="btn btn-warning mt-2">Editar Producto</a>
+              <% } %>
           </div>
           <% }) %> 
       </div>

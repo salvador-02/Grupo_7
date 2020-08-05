@@ -7,6 +7,7 @@ const multer = require('multer');
 const usersController = require('../controllers/usersController');
 // const { check } = require('express-validator');
 const validator = require('../middlewares/validator');
+const adminValidator = require('../middlewares/admin')
 const { login } = require('../controllers/usersController');
 const { locals } = require('../app');
 
@@ -63,14 +64,17 @@ const { locals } = require('../app');
 // Get Requests
 router.get('/login', checkLogin , usersController.login);
 router.get('/register', checkLogin, usersController.register);
-router.get('/profile', checkProfile, usersController.profile)
+router.get('/profile', checkProfile, usersController.profile);
+router.get('/edit',checkProfile, usersController.edit);
 
-// router.get('/', usersController.logOut);
+
+
 
 // Post Requests
 router.post('/register', upload.single('avatar'), validator.register, usersController.processRegister);
 router.post('/loginIn', validator.login, usersController.processLogin);
 router.post('/logout', usersController.logOut);
+router.post('/edit',  usersController.update);
 
 
 

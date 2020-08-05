@@ -3,11 +3,7 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 
 // Middlewares propios
-
-const json = require('../models/jsonModel');
-const User = json('users');
-// const { User } = require('../database/models');
-
+const { User } = require('../database/models');
 
 module.exports = {
   register: [
@@ -26,12 +22,15 @@ module.exports = {
       .notEmpty()
       .withMessage("Campo obligatorio")
       .bail()
-      .custom((value, { req }) => {
-        const user = User.findBySomething((user) => user.username == value);
-
-        return !user;
+      .custom((value) => {
+        return User.findOne( {
+          where: { username: value }
+        }).then((user) => {
+          if (user) {
+            return Promise.reject("Nombre de usuario en uso")
+        }
       })
-      .withMessage("Usuario registrado"),
+    }),
     //Img
     body('image')
       .custom((value, { req })=>{
@@ -62,11 +61,16 @@ module.exports = {
       .withMessage("Debes ingresar un email válido")
       .bail()
       .custom((value) => {
-        const user = User.findBySomething((user) => user.email === value);
-
-        return !user;
+        return User.findOne( {
+          where: {
+            email: value
+          }
+        }).then((user) => {
+          if (user) {
+            return Promise.reject("Email en uso")
+        }
       })
-      .withMessage("Email registrado"),
+    }),
     // Password
     body("password")
       .notEmpty()
@@ -82,21 +86,28 @@ module.exports = {
       .custom((value, { req }) => req.body.password === value)
       .withMessage("Las contraseñas no coinciden"),
   ],
+  
   login: [
     body("email")
       .notEmpty()
       .withMessage("Campo obligatorio")
       .bail()
-      .custom((value, { req }) => {
-        const user = User.findBySomething((user) => user.email == value);
+      .custom(( value, { req } ) => {
+        return User.findOne( { 
+          where: { email: value }
+        }).then((user) => {
+          if (user) {
+            if (bcrypt.compareSync(req.body.password, user.password) == false ) {
 
-        if (user) {
-          return bcrypt.compareSync(req.body.password, user.password);
-        } else {
-          return false;
-        }
-      })
-      .withMessage("Email o contraseña inválidos"),
+              return Promise.reject("Email o contraseña invalidos");
+
+            }
+          } else {
+
+            return Promise.reject("Email o contraseña invalidos");
+          }
+        })
+      }),
     body("password").notEmpty().withMessage("Campo obligatorio"),
   ],
 };

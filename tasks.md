@@ -1,7 +1,4 @@
-Carrito de compras: 
-- RehaceR!
-- Quitar elemento
-- Precio final 
+
 
 Register Css: 
 - Ajustar el box de registro en Css
@@ -27,3 +24,12 @@ Register/Login:
 2. Crear el controlador de login con un método que busque el usuario en el json y controle que la contraseña sea la correcta. Como parte del proceso de login hay que cargar los datos del usuario en Session. | TERMINADO! 
 3. Recuperar los datos de Session en las vistas para que el usuario se de cuenta de que está logueado.
 4. Plus: restringir vistas del sitio de acuerdo a si el usuario está logueado o no.
+
+SPRINT 4 --BASE DE DATOS--
+- Login con DB.
+- Mostrar productos con desde la DB (index-pcgaming)
+- Agregar producto
+- *Carrito
+- Roles admin|user
+- 
+

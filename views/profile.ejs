@@ -14,23 +14,24 @@
     <%- include('partials/head')  %> 
 
     <div class="d-flex justify-content-center mt-4">
-        <img src="/avatar/user-avatar.jpg" alt="User-Avatar" style="width: 80px; height: 80px;" alt="user-avatar">
+        <img src="/avatar/<%= user.image %>" alt="User-Avatar" style="width: 1000px; height: 400px;" alt="user-avatar">
     </div>
         <div class="container mt-4" id="registro">
             <div class="row product-detail">
                 <div class="col-5 d-flex flex-column mb-4">
-                    <label for="name" class="form-label"><b>Nombre:</b></label>
+                    <label for="name" class="form-label"><b>Nombre: </b> <%= user.name %></label>
                 </div>
                 <div class="col-5 d-flex flex-column mb-4">
-                    <label for="lastname" class="form-label"><b>Apellido: </b></label>
+                    <label for="lastname" class="form-label"><b>Apellido: </b> <%= user.lastname %></label>
                 </div>
                 <div class="col-5 d-flex flex-column mb-4">
-                    <label for="username" class="form-label"><b>Username: </b> <%= locals.user.username %>  </label>
+                    <label for="username" class="form-label"><b>Username: </b> <%= user.username %>  </label>
                 </div>
                 <div class="col-5 d-flex flex-column mb-4">
-                    <label for="email" class="form-label"><b>Email</b>: <%= locals.user.email %>  </label>
+                    <label for="email" class="form-label"><b>Email</b>: <%= user.email %>  </label>
                 </div>
             </div>
+            <a href="/users/edit" id="nav-button" class="btn btn-warning mt-2">Editar</a>
         </div>
 
     <!--Contenido-->

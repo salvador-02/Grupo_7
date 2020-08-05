@@ -36,13 +36,12 @@ img {
 /*Footer*/
 
 
-/* 
+
 @media (max-width: 576px) {
 
-  .navbar-collapse {
-    display: flex;
-    
-  }
+
+
+
 
   .text-center{
       text-align: center !important;

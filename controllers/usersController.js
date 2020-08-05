@@ -20,14 +20,10 @@ const controller = {
 		// console.log(errors);
 		if (errors.isEmpty()) {
 			let user = req.body;
-			// console.log(user)
 			user.image = req.file.filename;
 			delete user.retypePassword;
 			user.password = bcryptjs.hashSync(user.password, 10);
-			
-
-			// User.guardarUno(user);
-
+			// User.guardarUno(user)
 			User.create(user)
 				.then( user => {
 
@@ -37,7 +33,6 @@ const controller = {
 					console.log(err);
 				})
 
-			
 		} else {
 			return res.render("register", { errors: errors.mapped(), old: req.body });
 		}
@@ -56,20 +51,27 @@ const controller = {
 		const errors = validationResult(req);
 	
 		if(errors.isEmpty()){
-
 			// LOGUEO AL USUARIO ETC
-			let user = userModel.findBySomething(user => user.email == req.body.email);
-	
-			delete user.password;
-	
-			req.session.user = user; // YA ESTÁ EN Session
-	
-		if (req.body.remember) {
-			// Creo la cookie
-			res.cookie('email', user.email, { maxAge: 1000 * 60 * 60 * 24 });
-		}
 
-		return res.redirect('/');
+			User.findOne( { 
+				where:{ 
+					email: req.body.email
+				}
+			})
+				.then((user) => {
+
+					delete user.dataValues.password;
+					req.session.user = user; // YA ESTÁ EN Session
+			
+					if (req.body.remember) {
+						// Creo la cookie
+						res.cookie('email', user.email, { maxAge: 1000 * 60 * 60 * 24 });
+					}
+			
+					return res.redirect('/');
+				})
+				.catch( e => console.log(e))
+			
 	
 		} else {
 			
@@ -91,13 +93,43 @@ const controller = {
 	},
 
 	profile: function(req, res) {
+
+		User.findByPk(req.session.user.id)
+			.then(user => {
+				return res.render('profile', { user });
+			})
+	},
+
+	edit: function(req, res) {
 		
-		return res.render('profile')
+		return res.render('edit')
+
+	},
+
+	update: function(req, res) {
+		const errors = validationResult(req);
+		
+		if(errors.isEmpty()) {
+			let user = req.body
+			return res.send(user)
+		}
 		
 
+
+	// 	User.update({
+	// 		email: ,
+
+	// 	} , 
+	// 	{ 
+	// 		where: {
+	// 			id : 43
+	// 		}
+	// 	}).then(user => {
+			
+	// 		return res.send(req.body.email)
+	// 	})
 	}
-	
-	
+		
 }
 ;
 

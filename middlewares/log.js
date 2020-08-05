@@ -1,5 +1,6 @@
 const json = require("../models/jsonModel");
-const User = json("users");
+// const User = json("users");
+const { User } = require('../database/models');
 
 
 module.exports = (req, res, next) => {
@@ -17,21 +18,25 @@ module.exports = (req, res, next) => {
 
     // Buscamos al usuario
 
-    let user = User.findBySomething(user => user.email == req.cookies.email);
+    User.findOne(
+      {
+        where: {
+          email : req.cookies.email
+         }
+      }).then(user => {
+        // Sacamos los datos sensibles
+      delete user.password;
 
-    // LO LOGUEO
+      // Lo guardamos en sesion
+      req.session.user = user;
 
-    // Sacamos los datos sensibles
-    delete user.password;
+      // Mandamos datos a la vista
+      res.locals.user = user;
+      // Continuamos
+      return next();
 
-    // Lo guardamos en sesion
-    req.session.user = user;
+      })
 
-    // Mandamos datos a la vista
-    res.locals.user = user;
-
-    // Continuamos
-    return next();
   } else {
     return next();
   }
