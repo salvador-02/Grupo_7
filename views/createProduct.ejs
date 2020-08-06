@@ -13,67 +13,74 @@
     <!--Header-->
     <%- include('partials/head')  %> 
 
-	<div class="container products-wrapper">
+<div class="container-fluid">
+	<div style="background-color: #23be48; height: 2em;">
+	</div>
+</div>
+
+<div class="container mt-4">	
+	<h2 class="products-title" style="color: #23be48;">CREAR PRODUCTO</h2>
+	<form action="/pc-gaming/product/create" method="POST" enctype="multipart/form-data">
 		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Formulario de creación de productos</h2>
+		  <div class="col">
+			<label for="name" class="form-label">Nombre del producto:</label>
+			<input type="text" id="name" name="name" placeholder="Ej: Monitor LG 14' " class="form-control">
+		  </div>
+		  <div class="col">
+			<label for="price" class="form-label">Precio del producto:</label>
+			<input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-control">
+		  </div>
+		</div>
+		<div class="row mt-2">
+			<div class="col">
+				<label for="discount" class="form-label">Descuento:</label>
+				<input type="text" id="discount" name="descuento" placeholder="Ej: 15" class="form-control">
+			</div>
+			<div class="col">
+				<label for="categoryId" class="form-label">Id de Categoría:</label>
+				<select name="categoryId" id="categoryId" class="form-control">
+					<option value="1">1</option>
+					<option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+				</select>
 			</div>
 		</div>
-		<div class="col-12">
-			<form action="/pc-gaming/product/create" method="POST" enctype="multipart/form-data">
-				<div class="row product-detail">
-					<div class="col-12 col-md-6">
-						<label for="name" class="form-label">Nombre del producto:</label>
-						<input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input">
-					</div>
-					<div class="col-12 col-md-6">
-						<label for="price" class="form-label">Precio del producto:</label>
-						<input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input">
-					</div>
-					<div class="col-12 col-md-6">
-						<label for="discount" class="form-label">Descuento:</label>
-						<input type="text" id="discount" name="descuento" placeholder="Ej: 15" class="form-input">
-					</div>
-					<div class="col-12 col-md-6">
-						<label for="categoryId" class="form-label">Id de Categoría:</label>
-						<select name="categoryId" id="categoryId" class="form-input">
-							<option value="1">1</option>
-							<option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-						</select>
-                    </div>
-                    <div class="col-12 col-md-6">
-						<label for="brandId" class="form-label">ID de Marca:</label>
-						<select name="brandId" id="brandId" class="form-input">
-							<option value="1">1</option>
-							<option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-						</select>
-					</div>
-					<div class="col-12">
-						<label for="description" class="form-label">Descipción:</label>
-						<textarea name="description" id="description" class="form-input"></textarea>
-                    </div>
-                    <div class="col-12 col-md-6">
-						<label for="stock" class="form-label">Stock:</label>
-						<input type="text" id="stock" name="stock" placeholder="Ej: 15" class="form-input">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="image">Imagen: </label>
-                        <input type="file" id="image" name="img" class="form-file col-12">
-                        <p class="error"><%= typeof errors == 'undefined' ? null :errors.image ? errors.image.msg : null  %> </p>
-                    </div>
-					<div class="col-12">
-						<button type="submit" class="buy-now-button">Guardar producto</button>
-					</div>
-				</div>
-			</form>
+		<div class="row mt-2">
+			<div class="col">
+				<label for="brandId" class="form-label">ID de Marca:</label>
+				<select name="brandId" id="brandId" class="form-control">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="4">5</option>
+					<option value="4">6</option>
+					<option value="4">7</option>
+					<option value="4">8</option>
+				</select>
+			</div>
+			<div class="col">
+				<label for="description" class="form-label">Descipción:</label>
+				<textarea name="description" id="description" class="form-control"></textarea>
+			</div>
 		</div>
-
-    </div>
-    
+		<div class="row mt-2">
+			<div class="col">
+				<label for="stock" class="form-label">Stock:</label>
+				<input type="text" id="stock" name="stock" placeholder="Ej: 15" class="form-control">
+			</div>
+			<div class="col mt-4">
+				<label class="form-label" for="image">Imagen: </label>
+                <input type="file" id="image" name="img" class="form-file">
+                <p class="error"><%= typeof errors == 'undefined' ? null :errors.image ? errors.image.msg : null  %> </p>
+			</div>
+		</div>
+		<div class="row mt-4 mb-4">
+			<button type="submit" class="btn btn-outline-success btn-lg btn-block">Guardar Producto</button>
+		</div>
+	  </form>
+</div>  
       <!--Contenido-->
 
     <!--Footer-->
