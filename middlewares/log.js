@@ -1,4 +1,3 @@
-const json = require("../models/jsonModel");
 const { User } = require('../database/models');
 
 

@@ -1,0 +1,10 @@
+#profilePic {
+    border-radius: 10px;
+}
+
+.hr1 { 
+    height: 10px;
+    border-top: solid .15em rgb(56, 180, 18);
+    border-radius: 5px;
+    
+}

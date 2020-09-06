@@ -9,14 +9,14 @@ module.exports = (sequelize, dataTypes) => {
         username: dataTypes.STRING,
         image: dataTypes.STRING,
     });
+    
 
-    // Relaciones
-
-    // User.associate = function(models){
-    //     User.hasMany(models)
-    // }
- 
-    // End relaciones
+    User.associate = function(models){
+        User.hasMany(models.Cart, {
+            as: 'carts',
+            foreignKey: 'userId'
+        })
+    }
 
     return User;
 

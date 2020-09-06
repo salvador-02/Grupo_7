@@ -15,6 +15,7 @@
           <!--Subheader-->
       <div class="container-fluid">
           <nav class="nav navbar-dark navbar-expand-sm" style="background-color: rgb(54, 180, 54);">
+            <div class="container">
               <ul class="navbar-nav">
                   <li class="nav-item">
                   <a class="nav-link active" href="/">Menu</a>
@@ -22,13 +23,11 @@
                   <li class="nav-item">
                   <a class="nav-link" href="/pc-gaming">Pc Gaming</a>
                   </li>
-                  <!-- <li class="nav-item">
-                  <a class="nav-link" href="#">Consolas</a>
-                  </li> -->
                   <li class="nav-item">
-                      <a class="nav-link" href="/carrito">Carrito(<span>0</span>)</a>
+                    <a class="nav-link" href="/carrito">Carrito(<%= locals.itemsCarrito %>)</a>
                   </li>
               </ul>
+            </div>
           </nav>
               <img src="/images/teclado2.jpg" class="img-fluid " alt="Responsive image">
           <div class="row bg-dark">
@@ -51,10 +50,10 @@
                     <p class="product-detail-price small">
                         <s><span style="font-size: 1.1em;">$<%= producto.price %> </span></s>
                         /
-                        <b class="card-text" style="font-weight: bold; font-size: 1.4em;">$<%= producto.price / 2%></b>
+                        <b class="card-text" style="font-weight: bold; font-size: 1.4em;">$<%= (producto.price - (producto.price * producto.descuento / 100)).toFixed(2) %></b>
                     </p>
                     <p style="color: green; font-size: 1em; font-weight: bold;"><%= producto.descuento %> % OFF</p>
-                    <a href="/carrito"  class="btn btn-success"  id="carrito">Añadir al carrito</a>
+                    <a href="/pc-gaming/detail/<%= producto.id %> " id="nav-button" class="btn btn-success">Ver Detalle</a>
                 </a>
                 </div>
             </div>

@@ -12,18 +12,19 @@ module.exports = (sequelize, dataTypes) => {
     });
 
     Product.associate = function(models) {
+        
         Product.belongsTo(models.Category, {
             as: 'category',
             foreignKey: 'categoryId'
-        })
-    },
-    Product.associate = function(models) {
+        }),
+
         Product.belongsTo(models.Brand, {
             as: 'brand',
             foreignKey: 'brandId'
         })
+
     }
-
-
+  
     return Product;
+
 }

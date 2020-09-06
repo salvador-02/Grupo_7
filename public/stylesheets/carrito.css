@@ -13,7 +13,9 @@ h6 {
 }
 
 #productos {
-    background-color: red;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    
 }
 
 .row {

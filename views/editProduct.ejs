@@ -6,51 +6,83 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/9f65918680.js" crossorigin="anonymous"></script>
     <title>Gamer Zone Home</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel='stylesheet' href='/stylesheets/editProduct.css' />
   </head>
   <body>
 
     <!--Header-->
     <%- include('partials/head')  %> 
-
-    
-	<div class="container products-wrapper">
+          <!--Subheader-->
+<div class="container-fluid">
+	<nav class="nav text-center  navbar-dark navbar-expand-sm" style="background-color: rgb(54, 180, 54);">
+	  <div class="container">
+		<ul class="navbar-nav ">
+			<li class="nav-item">
+			  <a class="nav-link " href="/">Menu</a>
+			</li>
+			<li class="nav-item">
+    			<a class="nav-link" href="/pc-gaming">Pc Gaming</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/carrito">Carrito(<%= locals.itemsCarrito %>)</a>
+			</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+	<div class="container mt-4 mb-4" id="background">
+		<div class="d-flex justify-content-center">
+			<h2 class="">Estás editando: <i><%= product.name %> </i></h2>
+		</div>
+		<form action="/pc-gaming/edit/<%= product.id %>" method="POST">
 		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Estás editando: <i><%= product.name %> </i></h2>
+			<div class="col" >
+				
+			</div>
+			<div class="col sm-12">
+				<label for="name" class="form-label">Nombre del producto:</label>
+				<input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-control" value="<%= product.name %> ">
+			</div>
+			<div class="col sm-12">
+				<label for="price" class="form-label">Precio del producto:</label>
+				<input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-control" value="<%= product.price %> ">
+			</div>
+			<div class="col">
+				
 			</div>
 		</div>
-		<div class="col-12">
-			<form action="/pc-gaming/edit/<%= product.id %>" method="POST">
-				<div class="row product-detail">
-					<div class="col-12 col-md-6">
-						<label for="name" class="form-label">Nombre del producto:</label>
-						<input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input" value="<%= product.name %> ">
-					</div>
-					<div class="col-12 col-md-6">
-						<label for="price" class="form-label">Precio del producto:</label>
-						<input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input" value="<%= product.price %> ">
-					</div>
-					<div class="col-12 col-md-6">
-						<label for="discount" class="form-label">Descuento:</label>
-						<input type="text" id="discount" name="descuento" placeholder="Ej: 15" class="form-input" value="<%= product.descuento %> ">
-					</div>
-					<div class="col-6">
-						<label for="description" class="form-label">Descipción:</label>
-						<textarea name="description" id="description" class="form-input"><%= product.description %></textarea>
-					</div>
-					<div class="col-6">
-                        <button type="submit" class="save-button">Guardar producto</button>
-					</div>
-				</div>
-            </form>
-            <div class="container">
-                <a href="/pc-gaming/delete/<%= product.id %>" > Eliminar producto</a>
-            </div>
-        </div>
+		<div class="row mt-4 mb-4">
+			<div class="col">
+				
+			</div>
+			<div class="col">
+				<label for="discount" class="form-label">Descuento:</label>
+				<input type="text" id="discount" name="descuento" placeholder="Ej: 15" class="form-control" value="<%= product.descuento %> ">
+			</div>
+			<div class="col">
+				<label for="description" class="form-label">Descipción del producto:</label>
+				<textarea name="description" id="description" rows="5" class="form-control"><%= product.description %></textarea>
+			</div>
+			<div class="col">
+				
+			</div>
+		</div>
+		<div class="row mt-4 mb-4" id="buttons">
+			<div class="col">
+				
+			</div>
+			<div class="col" id="btn1">
+				<button type="submit" class="btn btn-outline-success">Guardar producto</button>
+			</div>
+			</form>
+			<div class="col" id="btn2">
+				<a href="/pc-gaming/delete/<%= product.id %>" class="btn btn-outline-danger" > Eliminar producto</a>
+			</div>
+			<div class="col">
 
+			</div>
+		</div>
 	</div>
-    <!--Contenido-->
 
     <!--Footer-->
     <%- include('partials/footer') %> 

@@ -12,8 +12,12 @@ const { Sequelize } = require('sequelize');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const pcGamingRouter = require('./routes/pcGaming');
+//Api Products
+const apiProductsRouter = require('./routes/api/products');
+
 const carritoRouter = require('./routes/carrito');
 const log = require('./middlewares/log')
+const itemsCarrito = require('./middlewares/itemsCarrito')
 
 var app = express();
 
@@ -34,12 +38,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(log);
+app.use(itemsCarrito);
 
 app.use('/', indexRouter);
 app.use('/pc-gaming', pcGamingRouter);
 app.use('/users', usersRouter);
 app.use('/carrito', carritoRouter);
 app.use('/register', usersRouter);
+// Apis
+app.use('/api/products', apiProductsRouter);
 
 
 // catch 404 and forward to error handler

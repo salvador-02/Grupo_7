@@ -15,6 +15,7 @@
           <!--Subheader-->
       <div class="container-fluid">
           <nav class="nav text-center  navbar-dark navbar-expand-sm" style="background-color: rgb(54, 180, 54);">
+            <div class="container">
               <ul class="navbar-nav ">
                   <li class="nav-item">
                         <a class="nav-link " href="/">Menu</a>
@@ -22,35 +23,49 @@
                   <li class="nav-item">
                         <a class="nav-link" href="/pc-gaming">Pc Gaming</a>
                   </li>
-                  <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">Consolas</a>
-                  </li> -->
                   <li class="nav-item">
-                    <a class="nav-link active" href="/carrito">Carrito(<span>0</span>)</a>
+                    <a class="nav-link active" href="/carrito">Carrito(<%= locals.itemsCarrito %>)</a>
                   </li>
               </ul>
+              </div>
           </nav>
   <!--Body-->
-
+          
         <!--Producto -->
-<div class="container" id="productos">
-    <% productos.forEach(producto => { %>
+<div class="container col-8" id="productos">
+    <% items.forEach(producto => { %>
     <div class="row justify-content-center">
         <div class="col-2 ">
-            <img style="max-width: 8em;" src="images/<%= producto.image %> " class="card-img-top" alt="...">
+            <img style="max-width: 8em;" src="images/<%= producto.img %> " class="card-img-top" alt="...">
         </div>
         <div class="col-4">
-            <p class="card-text ml-3">1x  <%= producto.name %> </p>
+            <p class="card-text ml-3">  <%= producto.quantity %>x<%= " " + producto.name %> </p>
         </div>
-        <div class="col-4 ">
-            <p class="ml-3" style="font-weight: bold; font-size: 1.2em;">$<%= producto.price - (producto.price * producto.descuento / 100) %> </p>
+        <div class="col-2">
+            <p class="ml-3" style="font-weight: bold; font-size: 1.2em;">$<%= producto.totalPrice %> </p>
+        </div>
+        <div class="col-2">
+            <form action="/carrito/delete/<%= producto.userId %>" method="POST">
+                <input type="hidden" name="itemId" value="<%= producto.id %>">
+                <button type="submit" class='btn btn-outline-danger btn-sm'>ELIMINAR</button>
+            </form>
         </div>
     </div>
     <% }) %>
-    <div class="row justify-content-end">
-        <div class="col-4 ">
-            <p> PRECIO FINAL </p>
-            <a class="btn btn-success" href="/">Finalizar Compra</a>
+
+    
+        <% if (locals.itemsCarrito == 0) { %>
+        <h5 class="row" style="margin-top: 5em; margin-bottom: 5em;">No se encuentran productos en tu carrito.</h5> 
+            <% } else {  %>
+        <div class="row justify-content-end">
+            <div class="col-4">
+            <!--Arreglar CSS-->
+                <p style="font-size: 1.5em;"> Precio final:</p>
+                <p style="font-size: 1.5em;"><b>$<%= subTotal %></b></p>
+                <form action="/carrito/comprar" method="POST">
+                    <button type="submit" class='btn btn-outline-success'>Finalizar Compra</button>
+                </form>
+            <% } %> 
         </div>
     </div>
 </div>

@@ -1,12 +1,11 @@
 const { Product } = require('../database/models');
-const jsonModel = require('../models/jsonModel');
-const productModel = jsonModel('productos');
 
 
 const controller = {
 	root: (req, res) => {
 
-		const productList = Product.findAll().then((product) => {
+
+		Product.findAll().then((product) => {
 			
 			return res.render('pc-gaming', { product });
 
@@ -16,7 +15,7 @@ const controller = {
 
 	byCategory: (req, res) => {
 
-		const productList = Product.findAll({
+		Product.findAll({
 			where: {
 				categoryId: req.params.category
 			}
@@ -31,7 +30,7 @@ const controller = {
 
 	detail: (req, res) => {
 
-		const productDetail = Product.findOne({
+		Product.findOne({
 
 			where: { 
 				id : req.params.productId 
@@ -54,7 +53,7 @@ const controller = {
 	save: (req, res) => {
 
 			Product.findByPk(req.params.productId)
-			.then(product => {
+			.then( product => {
 
 				const _body = req.body;
 
@@ -64,7 +63,8 @@ const controller = {
 				_body.descuento = req.body.descuento;
 				_body.categoryId = req.body.categoryId;
 				_body.brandId = req.body.brandId;
-				_body.img = req.file.filename;
+				/*Filename tira error*/
+				_body.img = req.file;
 				
 
 
